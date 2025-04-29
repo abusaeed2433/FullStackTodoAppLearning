@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 @Service
@@ -43,8 +44,7 @@ public class TodoService {
 
     public Todo findById(int id) {
         Predicate<? super Todo> predicate = todo -> todo.getId() == id;
-        Todo todo = todos.stream().filter(predicate).findFirst().get();
-        return todo;
+        return todos.stream().filter(predicate).findFirst().get();
     }
 
     public void updateTodo(Todo todo) {

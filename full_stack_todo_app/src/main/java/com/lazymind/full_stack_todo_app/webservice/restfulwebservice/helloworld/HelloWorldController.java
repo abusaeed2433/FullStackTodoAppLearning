@@ -22,5 +22,4 @@ public class HelloWorldController {
         return new HelloWorldBean(name);
     }
 
-
 }

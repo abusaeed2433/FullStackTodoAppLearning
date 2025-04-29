@@ -1,7 +1,6 @@
-package com.lazymind.full_stack_todo_app;
+package com.lazymind.full_stack_todo_app.webservice.restfulwebservice.basic;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,7 +8,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+//@Configuration // commenting since I will use jwt later
 public class BasicAuthSecurityConfig {
 
     // filter chain
@@ -29,6 +28,7 @@ public class BasicAuthSecurityConfig {
                         auth ->
                                 auth
                                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // 1
+                                        .requestMatchers("/basic-auth").permitAll()
                                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults()) // basic auth. Shows a popup in browser when api request is made

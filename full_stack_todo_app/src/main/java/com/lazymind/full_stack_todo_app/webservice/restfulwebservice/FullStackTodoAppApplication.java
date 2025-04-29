@@ -1,4 +1,4 @@
-package com.lazymind.full_stack_todo_app;
+package com.lazymind.full_stack_todo_app.webservice.restfulwebservice;
 
 import lombok.NonNull;
 import org.springframework.boot.SpringApplication;
